@@ -5,6 +5,7 @@ extern"C" int getPerimeter(int* length, int* width);
 extern"C" int getArea(int* length, int* width);
 extern"C" void setLength(int input, int* length);
 extern"C" void setWidth(int input, int* width);
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace BCSRectests
@@ -12,7 +13,7 @@ namespace BCSRectests
 	TEST_CLASS(BCSRectests)
 	{
 	public:
-		TEST_METHOD(PerimeterTest1)
+		TEST_METHOD(getPerimeter_1and1_4)
 		{
 			// testing the getPerimeter function 
 			// Perimeter = 2(length+width)
@@ -20,13 +21,13 @@ namespace BCSRectests
 			int width = 1;
 			const int EXPECTED = 4;  // =2(1+1) = 4
 			int actual;
-		
+
 			actual = getPerimeter(&length, &width);
-			
+
 			Assert::AreEqual(EXPECTED, actual);
 		}
 
-		TEST_METHOD(AreaTest1)
+		TEST_METHOD(getArea_5and4_20)
 		{
 			// testing the getArea function 
 			// Area = length*width
@@ -39,77 +40,73 @@ namespace BCSRectests
 
 			Assert::AreEqual(EXPECTED, actual);
 		}
-		TEST_METHOD(LengthTest1)
+
+		TEST_METHOD(setLength1_0_fail)
 		{
 			// testing the setLength function
 			// input =[1,99]
 			int input = 0;
-			int length = 4;
-
-			setLength(input, &length); 
-
-			Assert::AreEqual(input, length);
-		}
-		TEST_METHOD(LengthTest2)
-		{
-			// testing the setLength function
-		    // input =[1,99]
-			int input = 100;
-			int length = 4;
+			int length;
 
 			setLength(input, &length);
 
 			Assert::AreEqual(input, length);
 		}
-		TEST_METHOD(LengthTest3)
+		TEST_METHOD(setLength2_100_fail)
 		{
 			// testing the setLength function
-		    // input =[1,99]
-			int input = -2;
-			int length = 5;
+			// input =[1,99]
+			int input = 100;
+			int length;
 
 			setLength(input, &length);
 
 			Assert::AreEqual(input, length);
 		}
-		TEST_METHOD(WidthTest1)
+		TEST_METHOD(setLength3_2_pass)
 		{
 			// testing the setLength function
-		    // input =[1,99]
-			int input = 1 ;
-			int width = 4;
+			// input =[1,99]
+			int input = 2;
+			int length;
+
+			setLength(input, &length);
+
+			Assert::AreEqual(input, length);
+		}
+		TEST_METHOD(setWidth1_1_pass)
+		{
+			// testing the setLength function
+			// input =[1,99]
+			int input = 0;
+			int width;
 
 			setWidth(input, &width);
 
 			Assert::AreEqual(input, width);
 		}
-		TEST_METHOD(WidthTest2)
+		TEST_METHOD(setWidth2_100_fail)
 		{
 			// testing the setLength function
-		    // input =[1,99]
+			// input =[1,99]
 			int input = 100;
-			int width = -4;
+			int width;
 
 			setWidth(input, &width);
 
 			Assert::AreEqual(input, width);
 		}
-		TEST_METHOD(WidthTest3)
+		TEST_METHOD(setWidth3_20_pass)
 		{
 			// testing the setLength function
-		    // input =[1,99]
-			int input = -5;
-			int width = 1000;
+			// input =[1,99]
+			int input = 20;
+			int width;
 
 			setWidth(input, &width);
 
 			Assert::AreEqual(input, width);
 		}
 
-
-
-	
-
-	
 	};
 }
