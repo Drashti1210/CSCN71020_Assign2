@@ -41,22 +41,22 @@ namespace BCSRectests
 			Assert::AreEqual(EXPECTED, actual);
 		}
 
-		TEST_METHOD(setLength1_0_fail)
+		TEST_METHOD(setLength1_1_pass)
 		{
 			// testing the setLength function
 			// input =[1,99]
-			int input = 0;
+			int input = 1;
 			int length;
 
 			setLength(input, &length);
 
 			Assert::AreEqual(input, length);
 		}
-		TEST_METHOD(setLength2_100_fail)
+		TEST_METHOD(setLength2_99_pass)
 		{
 			// testing the setLength function
 			// input =[1,99]
-			int input = 100;
+			int input = 99;
 			int length;
 
 			setLength(input, &length);
@@ -78,18 +78,18 @@ namespace BCSRectests
 		{
 			// testing the setLength function
 			// input =[1,99]
-			int input = 0;
+			int input = 1;
 			int width;
 
 			setWidth(input, &width);
 
 			Assert::AreEqual(input, width);
 		}
-		TEST_METHOD(setWidth2_100_fail)
+		TEST_METHOD(setWidth2_99_pass)
 		{
 			// testing the setLength function
 			// input =[1,99]
-			int input = 100;
+			int input = 99;
 			int width;
 
 			setWidth(input, &width);
